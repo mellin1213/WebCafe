@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("fontello.css");
 /*스타일 초기화*/
 *, *::before, *::after{
     box-sizing: border-box; /*패딩과 보더까지 width에 포함*/
@@ -29,7 +30,7 @@ a{
 /*클래스모듈*/
 /*float 이슈를 해결하기 위한  clear 기능*/
 .clearfix::after{ /*비포 애프터는 인라인박스*/
-    content: ""; /*글자추가*/
+    content: ""; /*글자추가, 배경처럼 잡히는 것으로 텍스트를 추가해도 요소로 잡히지 않음*/
     display: block;
     clear: both;   /*clear는 박스 요소에만 적용됨*/
 }
@@ -65,7 +66,7 @@ body{
 /*로고*/
 .logo{
      position: absolute; /*fixed 는 뷰포트 기준*/
-    top:45px;
+    top:52px;
     left:65px;
 }
 /*안내링크*/
@@ -89,7 +90,6 @@ body{
     margin: 0 1px;
 }
 .member a{
-   
     padding: 5px 10px;
 }
 /*메인메뉴*/
@@ -97,9 +97,12 @@ body{
     background:#ed552f  linear-gradient(to bottom, #e8852e 0%,#ed552f 35%,#ed552f 70%,#e8852e 100%);
     margin-top:10px;
     padding-left: 225px;
+    border-top: 2px solid #000;
+    border-radius: 0 0 5px 5px;
 }
 .menu > li{     /*>자식 요소만 선택함, 손자는 선택안함*/
     float: left;
+    position: relative;
 }
 .menu-item-text{
     font-size: 1.7rem;
@@ -108,15 +111,71 @@ body{
     padding: 1em 18px;
     display:block;
     border-left: 1px solid #fff;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+}
+.menu-act .menu-item-text{
+    color: #ff0;
+    position: relative;
+}
+.menu-act .menu-item-text::after{
+    position: absolute;
+    bottom: -2px;
+    width: calc(100% - 36px);
+    content: "";
+    display: block;
+    border-top: 2px solid #000;
 }
 .sub-menu{
-    background: yellow;
-    position: absolute;
-    display:none;
+    position: absolute; 
+    top: 55px;
+    white-space: nowrap; /*줄바꿈 금지, block요소에서만 쓸수있음*/
+    display: none;
+}
+.menu-act .sub-menu{
+    display: block;
+}
+.sub-menu1, .sub-menu2, .sub-menu3{
+    left: 0;
+}
+.sub-menu4, .sub-menu5, .sub-menu6{
+    right: 0;
+}
+.sub-menu li, .sub-menu a{
+    display:inline-block;   
+}
+.sub-menu a{
+    padding: 10px 0;
+    margin-right: 10px;
 }
 /*비주얼*/
 .visual{
     height: 120px;
+}
+@keyframes textAni{
+    /*글자크기 12px~24px / (font-size)
+    투명도   투명~ 불투명 / (color:rgba) 
+    위치  왼쪽 상단에서 오른쪽 하단 (0,0)->(400px,75px) / position:absolute; 또는 margin 또는 padding 
+                                                        그러나 얘네는 성능이 좋지않다(과거방식임)
+    그래서 transform : translate(); 를 많이 사용함
+     */
+     0%{
+        font-size: 12px;
+        color: rgba(0,0,0,0);
+        transform: translate(0,0);
+     }   /*from 대신 0%*/
+     100%{
+        font-size: 24px;
+        color: rgba(0,0,0,1);
+        transform: translate(400px,75px);
+     }  /*to 대신 100%*/
+}
+.visual-text{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    animation-name: textAni;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    background: yellow;
+    width: 545px;
 }
 /*메인컨텐츠*/
 .main{
