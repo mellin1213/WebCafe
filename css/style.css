@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 /*스타일 초기화*/
 *, *::before, *::after{
     box-sizing: border-box; /*패딩과 보더까지 width에 포함*/
@@ -25,10 +26,21 @@ a{
     clip: rect(0,0,0,0);
     margin:-1px;
 }
+/*클래스모듈*/
+/*float 이슈를 해결하기 위한  clear 기능*/
+.clearfix::after{ /*비포 애프터는 인라인박스*/
+    content: ""; /*글자추가*/
+    display: block;
+    clear: both;   /*clear는 박스 요소에만 적용됨*/
+}
 /*기본스타일*/
 body{
     color:#181818;
     font-size: 1.4rem;
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    font-weight: 400;
+    line-height: 1.15;
+    background: #fff;
 }
 /*컨테이너*/
 .container{
@@ -84,7 +96,23 @@ body{
 .menu{
     background:#ed552f  linear-gradient(to bottom, #e8852e 0%,#ed552f 35%,#ed552f 70%,#e8852e 100%);
     margin-top:10px;
-  
+    padding-left: 225px;
+}
+.menu > li{     /*>자식 요소만 선택함, 손자는 선택안함*/
+    float: left;
+}
+.menu-item-text{
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 1em 18px;
+    display:block;
+    border-left: 1px solid #fff;
+}
+.sub-menu{
+    background: yellow;
+    position: absolute;
+    display:none;
 }
 /*비주얼*/
 .visual{
