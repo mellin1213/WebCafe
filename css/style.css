@@ -18,7 +18,7 @@ a{
     color: inherit;
 }
 /*숨긴컨텐츠*/
-.readable-hidden{
+.readable-hidden, legend{
     background: teal;
     position: absolute;
     width: 1px;
@@ -221,20 +221,85 @@ body{
 /*메인컨텐츠*/
 .main{
     min-height: 450px;
-    background: lime;
+    background: #fff;
+    padding:30px;
     display: flex; /*자식을 나란히 세우기 위해서  flex container로 지정*/
-    justify-content: space-evenly;
+    justify-content: space-between; 
     flex-direction: row;
+    border-radius: 15px 15px 0 0;
 }
 .group1{
-    background: pink;
+    
     width: 250px;
 }
 .group2{
-    background: pink;
+    
     width: 380px;
 }
 .group3{
-    background: pink;
+    
     width: 190px;
+}
+/*로그인*/
+.login{
+    background: #e8852e radial-gradient(circle at right top, #e8852e, #ed552f); 
+    border-radius: 5px;
+    padding:10px;
+}
+.login-heading{
+    font-size: 1.5rem;
+    font-weight:700;
+    color:#ff0;
+    padding-left:10px;
+}
+.login-form{
+    background: rgb(255,255,255);
+    margin-top:10px;
+    padding: 10px 10px 0 10px;
+    border-radius: 5px 5px 0 0;
+}
+.login-form fieldset{
+    border:0;
+    position: relative;
+    border-bottom:1px solid #aaa;
+    padding-bottom:10px;
+}
+.user-pw{
+    margin-top:5px;
+}
+.login-form label{       /*인라인 속성*/
+    width:4em;
+    display: inline-block;
+}
+.login-form input{       /*인라인블럭 속성*/
+    width: 95px;
+    height: 24px;
+    border: 1px solid #aaa;
+    padding: 1px 1px 1px 5px;
+}
+.btn-login{
+    position: absolute;
+    top:0;
+    right:0;
+    background: #ed552f;
+    color: rgb(255,255,255);
+    border-radius: 3px;
+    border:0px;
+    padding:0px;
+    font-size:1.2rem;
+    cursor: pointer;
+    width:50px;
+    height:52px;
+}
+.sign{
+    background:rgb(255,255,255);
+    border-radius: 0 0 5px 5px;
+    display:flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 1.3rem;
+}
+.sign .icon-right-open::before{
+    color:#ed552f;
+    margin-right:0;
 }
