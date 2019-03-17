@@ -245,6 +245,7 @@ body{
     background: #e8852e radial-gradient(circle at right top, #e8852e, #ed552f); 
     border-radius: 5px;
     padding:10px;
+    box-shadow: 5px 5px 0 0 #aaa;
 }
 .login-heading{
     font-size: 1.5rem;
@@ -258,6 +259,7 @@ body{
     padding: 10px 10px 0 10px;
     border-radius: 5px 5px 0 0;
 }
+/*shadow는 박스 사이즈에 영향을 주지 않음*/
 .login-form fieldset{
     border:0;
     position: relative;
@@ -289,9 +291,10 @@ body{
     font-size:1.2rem;
     cursor: pointer;
     width:50px;
-    height:52px;
+    height:54px;
 }
 .sign{
+
     background:rgb(255,255,255);
     border-radius: 0 0 5px 5px;
     display:flex;
@@ -302,4 +305,20 @@ body{
 .sign .icon-right-open::before{
     color:#ed552f;
     margin-right:0;
+}
+/*유효성검사 배너*/
+.validation{
+    margin-top:25px;
+}
+.validation-list a{
+    border-radius: 30px;
+    border: 1px solid #aaa;
+    padding: 8px 15px 8px 45px;
+    display: block;
+    background: url("images/validation_icon.png") no-repeat 20px 50%, linear-gradient(to bottom, #bbb, #eee) repeat 0 0 ;
+    margin: 10px 0;
+    background-color:#bbb;
+}
+.validation-list a:hover, .validation-list a:focus {
+    color: rgb(255,0,0);   
 }
